@@ -16,7 +16,7 @@ public interface ServerService {
 
     void delete(String id);
 
-    ServerForm saveOrUpdate(String id, ServerForm serverForm);
+    ServerForm update(String id, ServerForm serverForm);
 
     ServerForm save(ServerForm serverForm);
 }

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class ServerForm {
 
+    private String id;
     private String status;
     private String name;
     private String IPv4;

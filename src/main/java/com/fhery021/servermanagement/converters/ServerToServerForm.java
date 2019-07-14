@@ -17,6 +17,7 @@ public class ServerToServerForm implements Converter<Server, ServerForm> {
         form.setIPv4(server.getIPv4());
         form.setName(server.getName());
         form.setStatus(server.getStatus());
+        form.setId(server.getId().toString());
 
         return form;
     }

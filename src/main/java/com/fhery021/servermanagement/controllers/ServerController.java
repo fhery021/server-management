@@ -46,7 +46,7 @@ public class ServerController {
     @PutMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
     public ServerForm update(@PathVariable String id, @RequestBody ServerForm serverForm){
-        return serverService.saveOrUpdate(id, serverForm);
+        return serverService.update(id, serverForm);
     }
 
     @ApiOperation(value = "delete a server")

@@ -6,6 +6,7 @@ import com.fhery021.servermanagement.converters.ServerFormToServer;
 import com.fhery021.servermanagement.converters.ServerToServerForm;
 import com.fhery021.servermanagement.domain.Server;
 import com.fhery021.servermanagement.repositories.ServerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class ServerServiceImpl implements ServerService{
 
     private final ServerRepository serverRepository;
@@ -60,7 +62,7 @@ public class ServerServiceImpl implements ServerService{
     }
 
     @Override
-    public ServerForm saveOrUpdate(String id, ServerForm serverForm) {
+    public ServerForm update(String id, ServerForm serverForm) {
         Server server = serverFormToServer.convert(serverForm);
         server.setId(new ObjectId(id));
 
