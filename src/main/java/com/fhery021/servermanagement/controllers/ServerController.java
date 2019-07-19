@@ -1,12 +1,13 @@
 package com.fhery021.servermanagement.controllers;
 
 import com.fhery021.servermanagement.commands.ServerForm;
-import com.fhery021.servermanagement.commands.ServerListDTO;
 import com.fhery021.servermanagement.services.ServerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Api(description = "Server management API")
 @RestController
@@ -25,7 +26,7 @@ public class ServerController {
     @ApiOperation(value = "Get a list of servers", notes = "Full list, no filtering")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ServerListDTO getServersList(){
+    public List<ServerForm> getServersList(){
         return serverService.listAll();
     }
 

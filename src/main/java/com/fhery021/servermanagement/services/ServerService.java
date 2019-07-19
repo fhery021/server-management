@@ -1,16 +1,14 @@
 package com.fhery021.servermanagement.services;
 
 import com.fhery021.servermanagement.commands.ServerForm;
-import com.fhery021.servermanagement.commands.ServerListDTO;
-import com.fhery021.servermanagement.domain.Server;
 
 import java.util.List;
 
 public interface ServerService {
 
-    ServerListDTO listAll();
+    List<ServerForm> listAll();
 
-    ServerListDTO searchByNameOrIP(String text);
+    List<ServerForm> searchByNameOrIP(String text);
 
     ServerForm getById(String id);
 

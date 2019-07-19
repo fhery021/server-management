@@ -1,7 +1,6 @@
 package com.fhery021.servermanagement.services;
 
 import com.fhery021.servermanagement.commands.ServerForm;
-import com.fhery021.servermanagement.commands.ServerListDTO;
 import com.fhery021.servermanagement.converters.ServerFormToServer;
 import com.fhery021.servermanagement.converters.ServerToServerForm;
 import com.fhery021.servermanagement.domain.Server;
@@ -35,11 +34,11 @@ public class ServerServiceImpl implements ServerService{
     }
 
     @Override
-    public ServerListDTO listAll() {
+    public List<ServerForm> listAll() {
         List<ServerForm> serverForms = new ArrayList<>();
         serverRepository.findAll().forEach(server -> serverForms.add(serverToServerForm.convert(server)));
 
-        return new ServerListDTO(serverForms);
+        return serverForms;
     }
 
     @Override
@@ -48,12 +47,11 @@ public class ServerServiceImpl implements ServerService{
     }
 
     @Override
-    public ServerListDTO searchByNameOrIP(String text) {
-        return new ServerListDTO(
-                serverRepository.findAllByIdOrName(text)
+    public List<ServerForm> searchByNameOrIP(String text) {
+        return  serverRepository.findAllByIdOrName(text)
                 .stream()
                 .map(serverToServerForm::convert)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
     }
 
     @Override
