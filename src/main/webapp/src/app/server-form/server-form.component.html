@@ -1,0 +1,23 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #serverForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="server.name" name="name" class="form-control" id="name" placeholder="Enter server name"
+          required #name="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="ipv4">IPv4 address</label>
+        <input type="text" [(ngModel)]="server.ipv4" name="ipv4" class="form-control" id="ipv4" placeholder="Enter IP address"
+          required #name="ngModel">
+
+      </div>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" [(ngModel)]="server.status" name="status" class="form-control" id="status" placeholder="Online or Offline">
+      </div>
+      <button type="submit" [disabled]="!serverForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

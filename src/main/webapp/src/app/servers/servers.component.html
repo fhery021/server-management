@@ -1,0 +1,22 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-stripped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">IPv4</th>
+          <th scope="col">ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let server of servers">
+          <td> {{server.name}}</td>
+          <td> {{server.status}}</td>
+          <td> {{server.ipv4}}</td>
+          <td> {{server.id}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
